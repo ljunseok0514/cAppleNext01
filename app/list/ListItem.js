@@ -15,16 +15,23 @@ export default function ListItem({ result }) {
             <Link href={`/edit/${result[i]._id}`} className="edit">
               수정
             </Link>
-            <span
-              onClick={() => {
-                fetch("api/test", {
-                  method: "POST",
-                  body: JSON.stringify([1, 2, 3]),
-                }).then(() => {});
+            <button
+              className="list-btn"
+              onClick={(e) => {
+                // fetch("/api/post/delete", {
+                //   method: "DELETE",
+                //   body: result[i]._id,
+                // }).then(() => {
+                //   e.target.parentElement.style.opacity = 0;
+                //   setTimeout(() => {
+                //     e.target.parentElement.style.display = "none";
+                //   }, 1000);
+                // });
+                fetch(`/api/abc/${result[i]._id}`);
               }}
             >
-              삭제
-            </span>
+              🗑️
+            </button>
           </div>
         );
       })}
